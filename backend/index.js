@@ -1,6 +1,13 @@
-require('dotenv').config();
 
+
+
+require('dotenv').config();
 const templeRoutes = require('./routes/templeRoutes');
+const authRoutes = require('./routes/authRoutes');
+const bookmarkRoutes = require('./routes/bookmarkRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+const userRoutes = require('./routes/userRoutes');
+
 
 const express = require('express');
 const cors = require('cors');
@@ -12,7 +19,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/temples', templeRoutes);
-
+app.use('/api/auth', authRoutes);
+app.use('/api/bookmarks', bookmarkRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/users', userRoutes);
 // Connect Database
 connectDB();
 
